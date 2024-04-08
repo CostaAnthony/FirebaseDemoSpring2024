@@ -9,14 +9,22 @@ public class AccessDataView{
 
     private final StringProperty personName = new SimpleStringProperty();
     private final int age=0;
+
+    private final StringProperty personPhone = new SimpleStringProperty();
+
     private final ReadOnlyBooleanWrapper writePossible = new ReadOnlyBooleanWrapper();
 
     public AccessDataView() {
         writePossible.bind(personName.isNotEmpty());
+        writePossible.bind(personPhone.isNotEmpty());
     }
 
     public StringProperty personNameProperty() {
         return personName;
+    }
+
+    public StringProperty personPhoneProperty() {
+        return personPhone;
     }
 
     public ReadOnlyBooleanProperty isWritePossibleProperty() {
